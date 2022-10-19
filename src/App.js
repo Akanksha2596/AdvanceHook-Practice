@@ -1,9 +1,14 @@
 import './App.css';
-import Memo from './Memo';
+import Callbackhook from './CallbakHook/CallBackHook';
+// import Memo from './Memo';
 
 function App() {
   return (
-    <Memo />
+    <>
+     {/* <Memo /> */}
+     <Callbackhook/>
+    </>
+    
   );
 }
 
