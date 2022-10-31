@@ -5,7 +5,7 @@ const Memo = () => {
   const [show, setShow] = useState(false);
 
   const getValue = () => {
-    return setMyNum(myNum + 1);
+    return setMyNum((prevNum) => prevNum + 1);
   };
 
   const countNumber = (num) => {
@@ -15,23 +15,24 @@ const Memo = () => {
     }
   };
 
-
   const checkData = useMemo(() => {
     return countNumber(myNum);
-  },[myNum]);
-  
+  }, [myNum]);
 
   return (
     <>
-    <div className="container">
-      <button onClick={getValue} style={{ backgroundColor: "red" }}>
-        Counter
-      </button>
-      <p> My number : {checkData} </p>
-      <button onClick={() => setShow(!show)} style={{ backgroundColor: "grey" ,width:"120px" }}>
-        {show ? "You clicked me" : "Click  me plz"}
-      </button>
-     </div> 
+      <div className="container">
+        <button onClick={getValue} style={{ backgroundColor: "red" }}>
+          Counter
+        </button>
+        <p> My number : {checkData} </p>
+        <button
+          onClick={() => setShow(!show)}
+          style={{ backgroundColor: "grey", width: "120px" }}
+        >
+          {show ? "You clicked me" : "Click  me plz"}
+        </button>
+      </div>
     </>
   );
 };
